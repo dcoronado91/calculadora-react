@@ -1,0 +1,141 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 20%, rgba(109, 40, 217, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 75% 80%, rgba(245, 158, 11, 0.06) 0%, transparent 60%);
+}
+
+/* ── Calculator shell ── */
+.calculator {
+  width: 340px;
+  border-radius: var(--radius-calc);
+  background: var(--calc-bg);
+  border: 1px solid var(--calc-border);
+  box-shadow: var(--shadow-calc);
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ── Display ── */
+.display {
+  background: var(--display-bg);
+  min-height: 116px;
+  padding: 24px 22px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  border-bottom: 1px solid var(--calc-border);
+}
+
+.display__value {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 10vw, 3.2rem);
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+  line-height: 1;
+  word-break: break-all;
+  text-align: right;
+}
+
+.display__error {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-error);
+  letter-spacing: 4px;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(248, 113, 113, 0.5);
+}
+
+/* ── Button grid ── */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 14px;
+}
+
+/* ── Buttons base ── */
+.btn {
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 1.15rem;
+  font-weight: 500;
+  border-radius: var(--radius-btn);
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s ease, transform 0.08s ease, box-shadow 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--btn-op);
+  outline-offset: 2px;
+}
+
+/* Number buttons */
+.btn--num { background: var(--btn-num); color: var(--text-primary); }
+.btn--num:hover { background: var(--btn-num-hover); }
+.btn--num:active { background: var(--btn-num-active); transform: scale(0.95); }
+
+/* Special buttons (C, +/-, %) */
+.btn--special {
+  background: var(--btn-special);
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+.btn--special:hover { background: var(--btn-special-hover); color: var(--text-primary); }
+.btn--special:active { transform: scale(0.95); }
+
+/* Operator buttons */
+.btn--op {
+  background: var(--btn-op);
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 300;
+  box-shadow: var(--glow-op);
+}
+.btn--op:hover {
+  background: var(--btn-op-hover);
+  box-shadow: 0 6px 28px rgba(124, 58, 237, 0.5);
+  transform: translateY(-1px);
+}
+.btn--op:active { background: var(--btn-op-active); transform: scale(0.95); box-shadow: none; }
+
+/* Equals button */
+.btn--equals {
+  background: var(--btn-eq);
+  color: #1c0e00;
+  font-size: 1.5rem;
+  font-weight: 600;
+  box-shadow: var(--glow-eq);
+}
+.btn--equals:hover {
+  background: var(--btn-eq-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(245, 158, 11, 0.5);
+}
+.btn--equals:active { background: var(--btn-eq-active); transform: scale(0.95); box-shadow: none; }
+
+/* Zero button (wide) */
+.btn--zero {
+  background: var(--btn-num);
+  color: var(--text-primary);
+  grid-column: span 2;
+  justify-content: flex-start;
+  padding-left: 26px;
+}
+.btn--zero:hover { background: var(--btn-num-hover); }
+.btn--zero:active { background: var(--btn-num-active); transform: scale(0.98); }

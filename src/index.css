@@ -1,0 +1,47 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-app: #0c0c14;
+  --calc-bg: #18182c;
+  --calc-border: rgba(255, 255, 255, 0.07);
+  --display-bg: #0d0d1c;
+  --btn-num: #22223a;
+  --btn-num-hover: #2e2e4e;
+  --btn-num-active: #3a3a5e;
+  --btn-special: #1e1e38;
+  --btn-special-hover: #2a2a48;
+  --btn-op: #6d28d9;
+  --btn-op-hover: #7c3aed;
+  --btn-op-active: #5b21b6;
+  --btn-eq: #f59e0b;
+  --btn-eq-hover: #fbbf24;
+  --btn-eq-active: #d97706;
+  --text-primary: #f0f0ff;
+  --text-dim: #8b8baa;
+  --text-error: #f87171;
+  --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  --radius-calc: 32px;
+  --radius-btn: 18px;
+  --glow-op: 0 4px 20px rgba(109, 40, 217, 0.4);
+  --glow-eq: 0 4px 20px rgba(245, 158, 11, 0.4);
+  --shadow-calc:
+    0 0 0 1px rgba(109, 40, 217, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 0 80px rgba(109, 40, 217, 0.12);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg-app);
+  font-family: var(--font-ui);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
