@@ -33,6 +33,8 @@ const applyOp = (a: number, op: Op, b: number): number => {
   return b
 }
 
+const hasDisplayRoom = (display: string): boolean => display.length < MAX_DIGITS
+
 export const useCalculator = () => {
   const [state, setState] = useState<CalcState>(initState)
 
@@ -43,7 +45,7 @@ export const useCalculator = () => {
       if (label === '+/-') {
         if (prev.display === 'ERROR' || prev.display === '0') return prev
         if (prev.display.startsWith('-')) return { ...prev, display: prev.display.slice(1) }
-        if (prev.display.length >= MAX_DIGITS) return prev
+        if (!hasDisplayRoom(prev.display)) return prev
         return { ...prev, display: '-' + prev.display }
       }
 
@@ -51,7 +53,7 @@ export const useCalculator = () => {
         if (prev.display === 'ERROR') return prev
         if (prev.waitingForOperand) return { ...prev, display: '0.', waitingForOperand: false }
         if (prev.display.includes('.')) return prev
-        if (prev.display.replace('-', '').length >= MAX_DIGITS) return prev
+        if (!hasDisplayRoom(prev.display)) return prev
         return { ...prev, display: prev.display + '.' }
       }
 
@@ -59,7 +61,7 @@ export const useCalculator = () => {
         if (prev.display === 'ERROR') return { ...prev, display: label, waitingForOperand: false }
         if (prev.waitingForOperand) return { ...prev, display: label, waitingForOperand: false }
         if (prev.display === '0') return { ...prev, display: label }
-        if (prev.display.replace('-', '').replace('.', '').length >= MAX_DIGITS) return prev
+        if (!hasDisplayRoom(prev.display)) return prev
         return { ...prev, display: prev.display + label }
       }
 

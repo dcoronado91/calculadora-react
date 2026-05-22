@@ -26,6 +26,12 @@ describe('Calculator — display behavior', () => {
     expect(getDisplay().length).toBeLessThanOrEqual(9)
   })
 
+  it('counts the decimal point within the 9-character limit', async () => {
+    const user = userEvent.setup()
+    await press(user, '1', '2', '3', '4', '5', '6', '7', '8', '.', '9')
+    expect(getDisplay()).toBe('12345678.')
+  })
+
   it('resets display when C is pressed', async () => {
     const user = userEvent.setup()
     await press(user, '9', '8', '7', 'C')
@@ -77,5 +83,11 @@ describe('Calculator — operations', () => {
     expect(getDisplay()).toBe('-5')
     await press(user, '+/-')
     expect(getDisplay()).toBe('5')
+  })
+
+  it('counts the minus sign within the 9-character limit', async () => {
+    const user = userEvent.setup()
+    await press(user, '1', '2', '3', '4', '5', '6', '7', '8', '+/-', '9')
+    expect(getDisplay()).toBe('-12345678')
   })
 })
