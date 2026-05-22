@@ -2,13 +2,9 @@
 
 CalcPro es una calculadora web moderna construida con React, TypeScript y Vite. El proyecto separa la interfaz en componentes pequeños, concentra la lógica de negocio en un hook reutilizable y cuenta con pruebas automatizadas y documentación visual con Storybook.
 
-> Este README está guardado en UTF-8 para que acentos, símbolos y caracteres especiales se muestren correctamente en GitHub, editores y terminales.
-
 ## Demo
 
-La demo en vivo está pendiente de publicación.
-
-Cuando el proyecto esté desplegado, reemplaza esta línea por el enlace de hosting correspondiente.
+**[Ver aplicación en vivo](https://calculadora-react-teal-mu.vercel.app/)**
 
 ## Funcionalidades
 
